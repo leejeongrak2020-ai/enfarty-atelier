@@ -2,19 +2,25 @@ backend:
   name: github
   repo: leejeongrak2020-ai/enfarty-atelier
   branch: main
+  # 깃허브 로그인을 도와주는 중계 서버입니다.
+  base_url: https://sveltia-cms-auth.baditaflorin.workers.dev
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name: "items"
+  - name: "atelier_config"
     label: "작품 관리"
-    file: "public/data/products.json"
-    fields:
+    # 하나의 파일(products.json)을 관리할 때는 아래와 같이 'files' 구조를 써야 에러가 나지 않습니다.
+    files:
       - label: "작품 리스트"
-        name: "items"
-        widget: "list"
+        name: "products"
+        file: "public/data/products.json"
         fields:
-          - {label: "작품명", name: "title", widget: "string"}
-          - {label: "사진", name: "image", widget: "image"}
-          - {label: "설명", name: "desc", widget: "string"}
+          - label: "작품 목록"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "작품명", name: "title", widget: "string"}
+              - {label: "사진 업로드", name: "image", widget: "image"}
+              - {label: "작품 설명", name: "desc", widget: "string"}
