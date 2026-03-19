@@ -2,48 +2,63 @@ backend:
   name: github
   repo: leejeongrak2020-ai/enfarty-atelier
   branch: main
-  base_url: https://decapbridge.com
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
   - name: "pages"
-    label: "페이지 내용 관리"
+    label: "웹사이트 전체 관리"
     files:
-      - label: "메인 페이지 (작품전)"
-        name: "main"
-        file: "public/data/main.json"
-        fields:
-          - {label: "페이지 제목", name: "title", widget: "string"}
-          - label: "작품 리스트", name: "items", widget: "list", fields:
-            - {label: "작품명", name: "title", widget: "string"}
-            - {label: "사진", name: "image", widget: "image"}
-            - {label: "설명", name: "desc", widget: "string"}
-
-      - label: "커리큘럼 페이지"
-        name: "curriculum"
-        file: "public/data/curriculum.json"
-        fields:
-          - {label: "상단 제목", name: "title", widget: "string"}
-          - {label: "설명 문구", name: "subtitle", widget: "text"}
-          - label: "프로그램 목록", name: "programs", widget: "list", fields:
-            - {label: "프로그램명", name: "name", widget: "string"}
-            - {label: "대표 사진", name: "image", widget: "image"}
-            - {label: "대상 연령", name: "target", widget: "string"}
-            - {label: "상세 내용", name: "details", widget: "text"}
-
-      - label: "수업 시간표"
-        name: "schedule"
-        file: "public/data/schedule.json"
-        fields:
-          - {label: "시간표 이미지", name: "table_image", widget: "image"}
-          - {label: "예약 링크 (카카오톡 등)", name: "booking_link", widget: "string"}
-
-      - label: "사이트 공통 설정 (푸터/문의)"
+      # 1. 공통 설정 (푸터, 연락처, SNS 아이콘 링크)
+      - label: "1. 공통 설정 (연락처/SNS 링크)"
         name: "global"
         file: "public/data/global.json"
         fields:
-          - {label: "카카오톡 채널 링크", name: "kakao_link", widget: "string"}
-          - {label: "학원 주소", name: "address", widget: "string"}
-          - {label: "상담 전화번호", name: "phone", widget: "string"}
+          - {label: "카카오톡 채널 링크", name: "kakao_link", widget: "string", required: false}
+          - {label: "인스타그램 링크", name: "instagram_link", widget: "string", required: false}
+          - {label: "블로그 링크", name: "blog_link", widget: "string", required: false}
+          - {label: "학원 주소", name: "address", widget: "string", required: false}
+          - {label: "상담 전화번호", name: "phone", widget: "string", required: false}
+
+      # 2. 메인 페이지 (작품전)
+      - label: "2. 메인 페이지 (홈)"
+        name: "main"
+        file: "public/data/main.json"
+        fields:
+          - {label: "메인 제목", name: "main_title", widget: "string", default: "앙파티 아뜰리에 작품전"}
+          - label: "메인 전시 작품 리스트", name: "items", widget: "list", fields: [
+              {label: "작품명", name: "title", widget: "string"},
+              {label: "사진 업로드", name: "image", widget: "image"},
+              {label: "작품 설명", name: "desc", widget: "text"}
+            ]
+
+      # 3. 커리큘럼 페이지
+      - label: "3. 커리큘럼 페이지"
+        name: "curriculum"
+        file: "public/data/curriculum.json"
+        fields:
+          - label: "교육 프로그램 리스트", name: "programs", widget: "list", fields: [
+              {label: "프로그램명 (예: 감성 톡톡 유치부)", name: "name", widget: "string"},
+              {label: "프로그램 사진", name: "image", widget: "image"},
+              {label: "핵심 목표 (쉼표로 구분하여 작성)", name: "goals", widget: "string"},
+              {label: "원장님 코멘트", name: "comment", widget: "text"}
+            ]
+
+      # 4. 시간표 페이지
+      - label: "4. 수업 시간표 페이지"
+        name: "schedule"
+        file: "public/data/schedule.json"
+        fields:
+          - {label: "시간표 전체 이미지 업로드", name: "schedule_image", widget: "image"}
+          - {label: "체험 수업 예약 버튼 링크 (카카오톡 폼 등)", name: "booking_link", widget: "string"}
+          - {label: "예약 안내 문구", name: "booking_notice", widget: "text"}
+
+      # 5. About 페이지 (이야기)
+      - label: "5. 앙파티 이야기 (About)"
+        name: "about"
+        file: "public/data/about.json"
+        fields:
+          - {label: "메인 슬로건", name: "slogan", widget: "string"}
+          - {label: "인사말 본문", name: "greeting", widget: "text"}
+          - {label: "원장 약력 / 이력 (줄바꿈 가능)", name: "history", widget: "text"}
