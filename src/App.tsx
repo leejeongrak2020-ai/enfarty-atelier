@@ -7,7 +7,6 @@ import Curriculum from './pages/Curriculum';
 import Schedule from './pages/Schedule';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import { DataProvider } from './contexts/DataContext';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
