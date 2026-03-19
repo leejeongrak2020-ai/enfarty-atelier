@@ -1,9 +1,18 @@
 backend:
-  name: github  # 핵심 변경 사항 (git-gateway 대신 github 입력)
-  repo: leejeongrak2020-ai/enfarty-atelier  # 행복배달부님의 GitHub 저장소 주소
+  name: github
+  repo: leejeongrak2020-ai/enfarty-atelier # ★본인의 깃허브주소/저장소명
   branch: main
 
-# 아래의 미디어 폴더 경로 및 컬렉션(작품 리스트) JSON 설정은 이전에 만든 그대로 유지합니다.
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
-...
+
+collections:
+  - name: "items"
+    label: "작품 관리"
+    file: "public/data/products.json" # ★데이터가 저장될 위치
+    fields:
+      - {label: "작품 리스트", name: "items", widget: "list", fields: [
+          {label: "작품명", name: "title", widget: "string"},
+          {label: "사진", name: "image", widget: "image"},
+          {label: "설명", name: "desc", widget: "string"}
+        ]}
