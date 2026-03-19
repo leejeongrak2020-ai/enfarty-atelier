@@ -2,8 +2,8 @@ backend:
   name: github
   repo: leejeongrak2020-ai/enfarty-atelier
   branch: main
-  # api. 이 반드시 포함된 아래 주소가 '로그인 사무실'의 진짜 주소입니다.
-  base_url: https://api.decapbridge.com
+  # api. 을 빼고 아래 주소로 정확히 입력하십시오.
+  base_url: https://decapbridge.com
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
