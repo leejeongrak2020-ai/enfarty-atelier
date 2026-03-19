@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: leejeongrak2020-ai/enfarty-atelier # ★본인의 깃허브주소/저장소명
+  repo: leejeongrak2020-ai/enfarty-atelier
   branch: main
 
 media_folder: "public/images/uploads"
@@ -9,10 +9,12 @@ public_folder: "/images/uploads"
 collections:
   - name: "items"
     label: "작품 관리"
-    file: "public/data/products.json" # ★데이터가 저장될 위치
+    file: "public/data/products.json"
     fields:
-      - {label: "작품 리스트", name: "items", widget: "list", fields: [
-          {label: "작품명", name: "title", widget: "string"},
-          {label: "사진", name: "image", widget: "image"},
-          {label: "설명", name: "desc", widget: "string"}
-        ]}
+      - label: "작품 리스트"
+        name: "items"
+        widget: "list"
+        fields:
+          - {label: "작품명", name: "title", widget: "string"}
+          - {label: "사진", name: "image", widget: "image"}
+          - {label: "설명", name: "desc", widget: "string"}
