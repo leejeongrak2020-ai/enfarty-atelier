@@ -26,7 +26,6 @@ function App() {
         <Router>
           <Routes>
             {/* Admin Routes (No Layout) */}
-            <Route path="/admin" element={<AdminLogin />} />
             <Route 
               path="/admin/dashboard" 
               element={
