@@ -2,8 +2,7 @@ backend:
   name: github
   repo: leejeongrak2020-ai/enfarty-atelier
   branch: main
-  # 깃허브 로그인을 도와주는 중계 서버입니다.
-  base_url: https://sveltia-cms-auth.baditaflorin.workers.dev
+  base_url: https://api.decapbridge.com
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
