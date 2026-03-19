@@ -6,7 +6,7 @@ import Curriculum from './pages/Curriculum';
 import Schedule from './pages/Schedule';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import { DataProvider } from './contexts/DataProvider'; // Context 폴더명 확인 필요
+import { DataProvider } from './contexts/DataContext'; // DataProvider 대신 DataContext로 수정했습니다
 
 function App() {
   return (
@@ -14,13 +14,12 @@ function App() {
       <Router>
         <Layout>
           <Routes>
-            {/* 일반 방문자용 페이지만 남기고, 오류를 일으키는 관리자 경로는 모두 삭제했습니다 */}
+            {/* 모든 페이지가 정상적으로 나오도록 경로를 설정했습니다 */}
             <Route path="/" element={<Main />} />
             <Route path="/curriculum" element={<Curriculum />} />
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            {/* 만약 사용자가 이상한 주소로 오면 메인으로 보냅니다 */}
             <Route path="*" element={<Main />} />
           </Routes>
         </Layout>
