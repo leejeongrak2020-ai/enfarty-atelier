@@ -1,8 +1,6 @@
-
 import React from 'react';
-import { Instagram, MapPin, MessageCircle, Quote, Settings } from 'lucide-react';
+import { Instagram, MapPin, MessageCircle, Settings } from 'lucide-react';
 import { useData } from '../contexts/DataContext';
-import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   const { socialLinks, contactInfo } = useData();
@@ -11,6 +9,7 @@ export const Footer: React.FC = () => {
     <footer className="bg-gray-50 pt-16 pb-8 border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+          {/* 1. 아뜰리에 소개 */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <h3 className="text-xl font-bold font-creative text-primary">앙파티 아뜰리에</h3>
@@ -32,6 +31,8 @@ export const Footer: React.FC = () => {
               </a>
             </div>
           </div>
+
+          {/* 2. 클래스 정보 */}
           <div>
             <h4 className="font-bold text-gray-800 mb-4">Class Info</h4>
             <ul className="space-y-2 text-sm text-gray-500">
@@ -41,6 +42,8 @@ export const Footer: React.FC = () => {
               <li><span className="w-2 h-2 bg-primary rounded-full inline-block mr-2"></span>원데이 / 특강 클래스</li>
             </ul>
           </div>
+
+          {/* 3. 연락처 및 위치 */}
           <div>
             <h4 className="font-bold text-gray-800 mb-4">Contact Us</h4>
             <div className="space-y-4 text-sm text-gray-500">
@@ -61,16 +64,8 @@ export const Footer: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* 하단 카피라이트 및 관리자 진입점(톱니바퀴) */}
         <div className="border-t border-gray-200 pt-8 text-center text-xs text-gray-400 flex flex-col md:flex-row justify-between items-center gap-4 group">
           <p>© 2024 Enfarty Atelier. All rights reserved.</p>
           <div className="flex items-center gap-2">
-            <p>Designed for Empathie Art</p>
-            <Link to="/admin" className="opacity-0 group-hover:opacity-100 transition-opacity p-1">
-                <Settings className="w-3 h-3 text-gray-300 hover:text-primary" />
-            </Link>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-};
