@@ -1,8 +1,12 @@
 backend:
-  name: github
+  name: git-gateway
   repo: jeongraklee21/enfarty-atelier
   branch: main
-  base_url: https://decapbridge.com
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/c66a4bd0-7308-41d7-9bee-630f07c8e3ee/pkce
+  auth_token_endpoint: /sites/c66a4bd0-7308-41d7-9bee-630f07c8e3ee/token
+  gateway_url: https://gateway.decapbridge.com
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
@@ -40,26 +44,26 @@ collections:
         file: "public/data/curriculum.json"
         fields:
           - label: "교육 프로그램 리스트", name: "programs", widget: "list", fields: [
-              {label: "프로그램명 (예: 감성 톡톡 유치부)", name: "name", widget: "string"},
+              {label: "프로그램명", name: "name", widget: "string"},
               {label: "프로그램 사진", name: "image", widget: "image"},
-              {label: "핵심 목표 (쉼표로 구분하여 작성)", name: "goals", widget: "string"},
+              {label: "핵심 목표", name: "goals", widget: "string"},
               {label: "원장님 코멘트", name: "comment", widget: "text"}
             ]
 
-      # 4. 시간표 페이지
+      # 4. 수업 시간표 페이지
       - label: "4. 수업 시간표 페이지"
         name: "schedule"
         file: "public/data/schedule.json"
         fields:
           - {label: "시간표 전체 이미지 업로드", name: "schedule_image", widget: "image"}
-          - {label: "체험 수업 예약 버튼 링크 (카카오톡 폼 등)", name: "booking_link", widget: "string"}
+          - {label: "체험 수업 예약 버튼 링크", name: "booking_link", widget: "string"}
           - {label: "예약 안내 문구", name: "booking_notice", widget: "text"}
 
-      # 5. About 페이지 (이야기)
+      # 5. 앙파티 이야기 (About)
       - label: "5. 앙파티 이야기 (About)"
         name: "about"
         file: "public/data/about.json"
         fields:
           - {label: "메인 슬로건", name: "slogan", widget: "string"}
           - {label: "인사말 본문", name: "greeting", widget: "text"}
-          - {label: "원장 약력 / 이력 (줄바꿈 가능)", name: "history", widget: "text"}
+          - {label: "원장 약력 / 이력", name: "history", widget: "text"}
